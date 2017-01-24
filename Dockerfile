@@ -15,7 +15,8 @@ RUN chmod g+w /etc/mock/*.cfg
 
 VOLUME ["/rpmbuild"]
 
-ONBUILD COPY mock /etc/mock
+# Have to remove this as it prevents jenkins slave s2i working
+#ONBUILD COPY mock /etc/mock
 
 # create mock cache on external volume to speed up build
 RUN install -g mock -m 2775 -d /rpmbuild/cache/mock
